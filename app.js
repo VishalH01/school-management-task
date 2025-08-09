@@ -31,8 +31,8 @@ app.get("/", (req, res) => {
     <p>Welcome to the School Management System API</p>
     <p>Available Routes: Click on the links to view the request in postman</p>
     <ul>
-        <li><a href="https://business-vishal-haramkar-7525076.postman.co/workspace/Vishal-Haramkar's-Workspace~877f05d8-6b2c-42d5-891a-d2744590a3fc/request/47464880-21400efc-abd0-4e34-a469-38d011baf5f1?action=share&source=copy-link&creator=47464880" target="_blank">POST /addSchool</a> - Add a new school</li>
-        <li><a href="https://business-vishal-haramkar-7525076.postman.co/workspace/Vishal-Haramkar's-Workspace~877f05d8-6b2c-42d5-891a-d2744590a3fc/request/47464880-42cbf044-9497-462e-bad8-da729a0bd3be?action=share&source=copy-link&creator=47464880" target="_blank">GET /listSchools</a> - List schools sorted by proximity</li>
+        <li><a href="https://business-vishal-haramkar-7525076.postman.co/workspace/Vishal-Haramkar's-Workspace~877f05d8-6b2c-42d5-891a-d2744590a3fc/collection/47464880-0bbf1a37-4675-4627-abe1-2d742a35f3b0?action=share&creator=47464880" target="_blank">POST /addSchool</a> - Add a new school</li>
+        <li><a href="https://business-vishal-haramkar-7525076.postman.co/workspace/Vishal-Haramkar's-Workspace~877f05d8-6b2c-42d5-891a-d2744590a3fc/collection/47464880-0bbf1a37-4675-4627-abe1-2d742a35f3b0?action=share&creator=47464880" target="_blank">GET /listSchools</a> - List schools sorted by proximity</li>
     </ul>
     <p>Add School Example:</p>
     <p>Insert the below data in the body of the request</p>
