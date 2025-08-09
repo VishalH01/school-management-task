@@ -143,6 +143,19 @@ Troubleshooting Vercel:
 - If you see DB connection errors, verify host/port/user/password/DB name and that the database is reachable from Vercel.
 - Long cold starts are uncommon, but the app creates the table on the first request if needed.
 
+### Using Railway MySQL
+If your MySQL database is hosted on Railway:
+
+- In Railway, open your MySQL service → Variables and copy the connection values.
+- In your Vercel Project → Settings → Environment Variables, set:
+  - `DB_HOST` = Railway `HOST`
+  - `DB_PORT` = Railway `PORT`
+  - `DB_USER` = Railway `USER`
+  - `DB_PASSWORD` = Railway `PASSWORD`
+  - `DB_DATABASE` = Railway `DATABASE`
+- Ensure Railway public networking is enabled so Vercel can reach the database from the public internet.
+- For local development, set the same values in your local `.env`.
+
 ### Notes
 - Inputs are validated and coordinates are parsed as floats.
 - All DB queries are parameterized.
