@@ -41,8 +41,8 @@ app.get("/", (req, res) => {
     <p>Welcome to the School Management System API</p>
     <p>Available Routes:</p>
     <ul>
-        <li><a href="/addSchool">POST /addSchool</a> - Add a new school</li>
-        <li><a href="/listSchools">GET /listSchools</a> - List schools sorted by proximity</li>
+        <li><a href="https://business-vishal-haramkar-7525076.postman.co/workspace/Vishal-Haramkar's-Workspace~877f05d8-6b2c-42d5-891a-d2744590a3fc/request/47464880-21400efc-abd0-4e34-a469-38d011baf5f1?action=share&source=copy-link&creator=47464880" target="_blank">POST /addSchool</a> - Add a new school</li>
+        <li><a href="https://business-vishal-haramkar-7525076.postman.co/workspace/Vishal-Haramkar's-Workspace~877f05d8-6b2c-42d5-891a-d2744590a3fc/request/47464880-42cbf044-9497-462e-bad8-da729a0bd3be?action=share&source=copy-link&creator=47464880" target="_blank">GET /listSchools</a> - List schools sorted by proximity</li>
     </ul>
     <p>Add School Example:</p>
     <p>Insert the below data in the body of the request</p>
@@ -68,7 +68,12 @@ app.post("/addSchool", async (req, res) => {
   try {
     let { name, address, latitude, longitude } = req.body;
 
-    if (!name || !address || latitude === undefined || longitude === undefined) {
+    if (
+      !name ||
+      !address ||
+      latitude === undefined ||
+      longitude === undefined
+    ) {
       return res.status(400).json({ error: "All fields are required" });
     }
 
@@ -109,17 +114,15 @@ app.post("/addSchool", async (req, res) => {
   }
 });
 
-app.get("/listSchool",async (req, res) => {
-    connection.query("SELECT * FROM school_db", (error, result) => {
-        if (error) {
-            console.log("Error:", error);
-            return res.status(500).json({ error: "Internal server error" });
-        }
-        res.send(result);
-    });
-    
-})
-
+app.get("/listSchool", async (req, res) => {
+  connection.query("SELECT * FROM school_db", (error, result) => {
+    if (error) {
+      console.log("Error:", error);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+    res.send(result);
+  });
+});
 
 app.get("/listSchools", async (req, res) => {
   try {
@@ -220,7 +223,8 @@ function ensureSchoolTable() {
 
       const extra = rows && rows[0] ? rows[0].EXTRA || "" : "";
       const columnKey = rows && rows[0] ? rows[0].COLUMN_KEY || "" : "";
-      const hasAutoIncrement = typeof extra === "string" && extra.includes("auto_increment");
+      const hasAutoIncrement =
+        typeof extra === "string" && extra.includes("auto_increment");
       const hasPrimaryKey = columnKey === "PRI";
 
       if (!hasAutoIncrement) {
